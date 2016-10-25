@@ -25,5 +25,6 @@
 
 # Ignore vagrant files
 Vagrantfile
-/.vagrant
+.vagrant
+.vagrant/*
 
