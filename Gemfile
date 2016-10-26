@@ -51,7 +51,7 @@ group :development, :test do
   gem 'capybara-email'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
-  gem 'faker'
+  gem 'ffaker'
   gem 'database_cleaner'
   gem 'letter_opener'
   gem 'rspec-rails'
