@@ -6,14 +6,15 @@ feature "signing in" do
   def fill_in_signin_fields
     fill_in "member[email]", with: member.email
     fill_in "member[password]", with: member.password
-    click_button "Log In"
+    click_button "Log in"
   end
 
   scenario "visiting the site to sign in with an email and password" do
-    visit root_path
+    visit "/"
     click_link "Log In"
     fill_in_signin_fields
     expect(page).to have_content("Signed in successfully.")
+    expect(page).not_to have_content("Sign Up")
   end
 
   scenario "visiting the site to sign in with an email only" do
@@ -21,7 +22,7 @@ feature "signing in" do
     click_link "Log In"
     fill_in "member[email]", with: member.email
     # the password field is empty
-    click_button "Log In"
+    click_button "Log in"
     expect(page).to have_content("Invalid Email or password.")
   end
 
@@ -29,7 +30,7 @@ feature "signing in" do
     visit root_path
     click_link "Log In"
     # email and password fields are empty
-    click_button "Log In"
+    click_button "Log in"
     expect(page).to have_content("Invalid Email or password.")
   end
 
