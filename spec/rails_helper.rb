@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
+include ActionDispatch::TestProcess
 Capybara.javascript_driver = :webkit
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -61,6 +62,11 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+
+  config.include Warden::Test::Helpers
+  config.before :suite do 
+    Warden.test_mode!
   end
   
   # RSpec Rails can automatically mix in different behaviours to your tests
