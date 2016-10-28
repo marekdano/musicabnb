@@ -2,28 +2,36 @@
   <div class="devise-form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
 
-    <h2>Log In</h2>
+    <h2 class="main-title">Log In</h2>
 
     <div class="form-group">
-      <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+      <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "Email" %>
     </div>
 
     <div class="form-group">
       <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
     </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="form-group">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
-
-    <%= f.submit "Log in", class: "btn btn-primary form-control" %> 
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+      </li>
+      <li class="list-inline-item pull-right">
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+        <% end -%>
+      </li>
+    </ul>
     
-  <% end %>
+    <%= f.submit "Log in", class: "btn btn-primary form-control" %>  
+    <% end %>
 
-    <%= render "devise/shared/links" %>
+    <%= render "shared/third-party-login-links", action_text: "Log in" %>
 
   </div><!-- /devise-form -->
 </div><!-- /container -->  
