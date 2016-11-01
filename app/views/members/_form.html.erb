@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag "member-avatar.jpg", class: "profile-picture", alt: "profile picture" %>
+    <button class="btn btn-default">UPLOAD</button> 
+  </div>
+  
+  
+    <div class="col-md-9">
+    <div class="panel panel-primary panel-wrapper">
+      <div class="panel-heading">Your Profile</div>
+      <div class="panel-body">
+  <%= form_for @member do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "Your name", class: "col-form-label" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :email, "Email", class: "col-form-label" %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+        
+        <%= f.fields_for :profile do |profile_form| %>
+          <div class="form-group">
+            <%= profile_form.label :bio, class: "col-form-label" %>
+            <%= profile_form.text_area :bio, class: "form-control" %>
+          </div>
+        <% end %>
+        <div class="actions">
+          <%= f.submit "Save Details", class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  <% end %>    
+
+    <div class="panel panel-primary panel-wrapper">
+      <div class="panel-heading">Login Information</div>
+      <div class="panel-body">
+        <%= form_tag("/", method: "post") do %>
+          <div class="form-group">
+            <%= label_tag :password, "Change password", class: "col-form-label" %>
+            <%= password_field_tag :password,"", class: "form-control", placeholder: "New Password" %>
+          </div>
+        
+          <div class="actions">
+            <%= submit_tag "Save New Password", class: "btn btn-default" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+
+

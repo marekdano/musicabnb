@@ -2,10 +2,14 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:edit, :update, :destroy]
 
   def edit
+    if @member.profile
+      @profile = @member.profile
+    else
+      @profile = @member.build_profile
+    end
   end
 
   def update 
-    puts params
     respond_to do |format|
       if @member.update(member_params)
         flash[:notice] = "Profile was updated successfully."
@@ -31,6 +35,6 @@ class MembersController < ApplicationController
     def member_params
       params
         .require(:member)
-        .permit(:name, :email, :password, profile_attributes: [:member_id, :bio])
+        .permit(:name, :email, :password, profile_attributes: [:id, :bio])
     end
 end

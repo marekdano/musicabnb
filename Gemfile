@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Front-end gems
 gem 'font-awesome-rails'
 gem 'animate-css-rails'
+#gem 'wicked' # check for more info https://github.com/schneems/wicked
 
 # Registration, Authentication and Authorization
 gem 'devise'
