@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :profile do
     bio "There something about me"
-    member nil
+    member
   end
 end

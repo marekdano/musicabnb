@@ -13,6 +13,9 @@ RSpec.describe Member, type: :model do
       should accept_nested_attributes_for(:profile)
         .allow_destroy(true)
     end
+  end
 
+  describe "associations" do 
+    it { should have_one(:profile) }
   end
 end
