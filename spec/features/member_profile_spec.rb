@@ -61,6 +61,7 @@ feature "Member with profile" do
     attach_file "profile[avatar]", avatar_path
     click_button "Upload"
     expect(page).to have_content("Profile was updated successfully.")
+    expect(page).to have_xpath("//img[contains(@src,'avatar.jpg')]")
     profile = Profile.last
     expect(profile).to have_attributes(avatar_file_name: a_value)
   end

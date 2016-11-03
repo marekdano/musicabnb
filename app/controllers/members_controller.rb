@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_action :authenticate_member!
   before_action :set_member, only: [:edit, :update, :destroy]
 
   def edit
@@ -19,6 +20,9 @@ class MembersController < ApplicationController
         format.html { redirect_to profile_path }
       end
     end
+  end
+
+  def destroy
   end
 
   private

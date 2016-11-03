@@ -32,6 +32,7 @@ gem 'paperclip', '~> 5.0.0'
 # Registration, Authentication and Authorization
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'pundit'
 
 
 # Use Redis adapter to run Action Cable in production
