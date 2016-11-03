@@ -11,14 +11,36 @@
   margin-bottom: 5rem; 
 }
 
-.profile-picture {
-  margin: 1rem 0;
-  width: 100%;
+.profile-picture-box {
+
+  @media (max-width: 992px) {
+    margin: 0 auto 2rem;
+    max-width: 150px;
+
+    input {
+      max-width: 200px;
+    }
+  }
+
+  .profile-picture {
+    margin: 1rem 0;
+    width: 100%;
+
+    @media (max-width: 992px) {
+      max-width: 150px;
+    }
+  }
+
+  .btn-upload {
+    width: 100%;
+  }
 }
 
 .panel-wrapper {
   margin-bottom: 3rem;
 }
+
+
 
 input[type=file] {
   // opacity: 0;

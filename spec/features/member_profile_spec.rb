@@ -55,14 +55,29 @@ feature "Member with profile" do
     expect(page).to have_content("Profile was not saved.")    
   end
 
-  scenario "uploads a profile picture" do
+  scenario "uploads a profile picture in correct format" do
     visit profile_path
-    avatar_path = 'spec/fixtures/files/avatar.jpg'
-    attach_file 'profile[avatar]', avatar_path
+    avatar_path = "spec/fixtures/files/avatar.jpg"
+    attach_file "profile[avatar]", avatar_path
     click_button "Upload"
     expect(page).to have_content("Profile was updated successfully.")
     profile = Profile.last
-    expect(page).to have_attributes(avatar_file_name: a_value)
+    expect(profile).to have_attributes(avatar_file_name: a_value)
   end
+
+  scenario "upload a profile picture in pdf format" do
+    visit profile_path
+    avatar_path = "spec/fixtures/files/sample.pdf"
+    attach_file = "profile[avatar]", avatar_path
+    click_button "Upload"
+    expect(page).to have_content("Profile was not saved.")
+  end
+
+  scenario "hit Upload button without choosing a file" do
+    visit profile_path
+    click_button "Upload"
+    expect(page).to have_content("Profile was not saved.")
+  end
+
 end
 
