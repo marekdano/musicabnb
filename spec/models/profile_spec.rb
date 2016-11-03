@@ -6,13 +6,10 @@ RSpec.describe Profile, type: :model do
       expect(FactoryGirl.create(:profile)).to be_valid
     end
 
-    it { should validate_presence_of(:bio) }
     it { should validate_presence_of(:member_id) }
   end
 
   describe "associations" do
     it { should belong_to(:member) }
-    it { should belong_to(:member).dependent(:destroy) }
-    it { should belong_to(:member).dependent(true) }
   end
 end

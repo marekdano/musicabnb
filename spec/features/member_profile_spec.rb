@@ -2,6 +2,10 @@ require "rails_helper"
 
 feature "Member with profile" do
   let(:member) { FactoryGirl.create(:member) }
+  
+  before do 
+    login_as(member, :scope => :member)
+  end
 
   #communicate purpose upfront with Simple BDD
   scenario "member can create own profile" do
@@ -50,4 +54,15 @@ feature "Member with profile" do
   def member_can_see_a_message_of_not_saved_information
     expect(page).to have_content("Profile was not saved.")    
   end
+
+  scenario "uploads a profile picture" do
+    visit profile_path
+    avatar_path = 'spec/fixtures/files/avatar.jpg'
+    attach_file 'profile[avatar]', avatar_path
+    click_button "Upload"
+    expect(page).to have_content("Profile was updated successfully.")
+    profile = Profile.last
+    expect(page).to have_attributes(avatar_file_name: a_value)
+  end
 end
+
