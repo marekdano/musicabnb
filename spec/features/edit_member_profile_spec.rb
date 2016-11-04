@@ -15,7 +15,6 @@ feature "Member with profile" do
   end
   #define methods from scenario
   def member_can_view_profile_form
-    login_as(member, :scope => :member)
     visit profile_path
     expect(page).to have_content("My Profile")
   end
@@ -41,7 +40,6 @@ feature "Member with profile" do
   end
   #define methods from scenario
   def member_can_view_profile_form
-    login_as(member, :scope => :member)
     visit profile_path
     expect(page).to have_content("My Profile")
   end

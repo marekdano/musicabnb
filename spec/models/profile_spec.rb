@@ -11,5 +11,6 @@ RSpec.describe Profile, type: :model do
 
   describe "associations" do
     it { should belong_to(:member) }
+    it { should belong_to(:member).dependent(:destroy) }
   end
 end

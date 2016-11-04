@@ -8,15 +8,14 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :members, only: [:edit, :update, :destroy] do
-    resource :profile, only: [:edit] do
+    resource :profile, only: [:edit, :update] do
       collection do
         put 'upload_avatar'
       end
     end
   end
 
-  get 'profile', to: 'members#edit'
+  #get 'profile', to: 'profiles#edit'
+  get 'profile', to: 'profiles#edit'
 
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
