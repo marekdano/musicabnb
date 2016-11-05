@@ -9,8 +9,8 @@ feature "Member with profile" do
 
   scenario "delete his/her account" do
     visit profile_path
-    click_link "Delete your account"
-    click_button "OK"
+    expect { click_link "Delete your account" }.to change(Profile, :count).by(-1)
+    expect(page).to have_content("We are unhappy seeing you to leave.")
     expect(page).to have_content("Log In")
     expect(page).to have_content("Sign Up")
   end

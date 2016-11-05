@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  resources :members, only: [:edit, :update, :destroy] do
-    resource :profile, only: [:edit, :update] do
+  resources :members, only: [:edit, :update] do
+    resource :profile, only: [:edit, :update, :destroy] do
       collection do
         put 'upload_avatar'
       end

@@ -37,9 +37,7 @@
           <div class="panel-heading">Delete Account</div>
           <div class="panel-body">
             <p>Once you delete your account, there is no going back. Please be certain.</p>
-
-            <%= link_to "Delete your account", root_path, class: "btn btn-danger" %>
-          
+            <%= link_to "Delete your account", member_profile_path(@member), method: :delete, data: { confirm: "Are you really sure to delete your account now?" }, class: "btn btn-danger" %>
           </div>
         </div>
 
