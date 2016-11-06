@@ -14,4 +14,5 @@ feature "Member with profile" do
     expect(page).to have_content("Log In")
     expect(page).to have_content("Sign Up")
   end
+
 end
