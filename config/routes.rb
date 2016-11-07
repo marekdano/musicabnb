@@ -7,5 +7,20 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :members, only: [:edit, :update] do
+    resource :profile, only: [:edit, :update, :destroy] do
+      collection do
+        patch 'upload_avatar'
+      end
+    end
+  end
+
+  resource :member, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
+
+  get 'profile', to: 'profiles#edit'
+
 end

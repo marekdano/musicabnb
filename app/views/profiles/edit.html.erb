@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="profile-wrapper">
+    <h1 class="profile-title">My Profile</h1>
+
+    <div class="row">
+      <div class="col-md-3 profile-picture-box">
+        <%= image_tag @member.profile.avatar.url, class: "profile-picture", alt: "profile picture" %>
+
+        <%= render "shared/avatar-form" %>
+      </div>
+
+      <div class="col-md-9">
+        <div class="panel panel-primary panel-wrapper">
+          <div class="panel-heading">Your Profile</div>
+          <div class="panel-body">
+            <%= render "profile-form" %>
+          </div>
+        </div>   
+
+        <div class="panel panel-primary panel-wrapper">
+          <div class="panel-heading">Login Information</div>
+          <div class="panel-body">
+            <%= render "change-password-form" %>
+          </div>
+        </div>
+
+        <div class="panel panel-danger panel-wrapper">
+          <div class="panel-heading">Delete Account</div>
+          <div class="panel-body">
+            <p>Once you delete your account, there is no going back. Please be certain.</p>
+            <%= link_to "Delete your account", member_profile_path(@member), method: :delete, data: { confirm: "Are you really sure to delete your account now?" }, class: "btn btn-danger" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

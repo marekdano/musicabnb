@@ -28,3 +28,5 @@ Vagrantfile
 .vagrant
 .vagrant/*
 
+/public/system
+

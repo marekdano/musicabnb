@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+ 
+$(document).ready(function() {
+  // Auto upload profile avatar when a image was selected 
+  // from the file system
+  $('#profile_avatar').change(function() {
+    $('.edit_profile').submit();
+  });
+});
+

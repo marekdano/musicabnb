@@ -1,0 +1,6 @@
+<%= form_for([@member, @profile], url: upload_avatar_member_profile_path(@member), id: "avatar-form", html: { multipart: true, method: "patch" }) do |f| %>
+
+  <%= f.hidden_field :member_id %>
+  <%= f.file_field :avatar %>
+  <%= f.submit "Upload", class: "btn btn-default btn-upload" %>
+<% end %>

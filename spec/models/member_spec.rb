@@ -9,6 +9,13 @@ RSpec.describe Member, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
-    
+    it do
+      should accept_nested_attributes_for(:profile)
+        .allow_destroy(true)
+    end
+  end
+
+  describe "associations" do 
+    it { should have_one(:profile) }
   end
 end

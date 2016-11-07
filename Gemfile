@@ -26,10 +26,14 @@ gem 'jbuilder', '~> 2.5'
 # Front-end gems
 gem 'font-awesome-rails'
 gem 'animate-css-rails'
+gem 'paperclip', '~> 5.0.0'
+#gem 'wicked' # check for more info https://github.com/schneems/wicked
 
 # Registration, Authentication and Authorization
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'pundit'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
