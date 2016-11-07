@@ -7,7 +7,7 @@ feature "Member with profile" do
     login_as(member, :scope => :member)
   end
 
-  scenario "delete his/her account" do
+  scenario "deletes his/her account" do
     visit profile_path
     expect { click_link "Delete your account" }.to change(Profile, :count).by(-1)
     expect(page).to have_content("We are unhappy seeing you to leave.")

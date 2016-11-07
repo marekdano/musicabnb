@@ -20,16 +20,7 @@
         <div class="panel panel-primary panel-wrapper">
           <div class="panel-heading">Login Information</div>
           <div class="panel-body">
-            <%= form_tag("/", method: "post") do %>
-              <div class="form-group">
-                <%= label_tag :password, "Change password", class: "col-form-label" %>
-                <%= password_field_tag :password,"", class: "form-control", placeholder: "New Password" %>
-              </div>
-            
-              <div class="actions">
-                <%= submit_tag "Save New Password", class: "btn btn-default" %>
-              </div>
-            <% end %>
+            <%= render "change-password-form" %>
           </div>
         </div>
 

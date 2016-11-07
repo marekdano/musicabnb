@@ -10,12 +10,17 @@ Rails.application.routes.draw do
   resources :members, only: [:edit, :update] do
     resource :profile, only: [:edit, :update, :destroy] do
       collection do
-        put 'upload_avatar'
+        patch 'upload_avatar'
       end
     end
   end
 
-  #get 'profile', to: 'profiles#edit'
+  resource :member, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
+
   get 'profile', to: 'profiles#edit'
 
 end

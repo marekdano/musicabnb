@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_member!
-  before_action :set_member, only: [:update]
+  before_action :set_member, only: [:update, :update_password]
 
   def update 
     @profile = @member.profile
@@ -14,6 +14,18 @@ class MembersController < ApplicationController
         flash[:alert] = "Profile was not saved. #{@member.errors.full_messages.join(" ")}."
         format.html { redirect_to profile_path }
       end
+    end
+  end
+
+  def update_password
+    @profile = @member.profile
+    authorize @profile
+    if @member.update(member_params)
+      # Sign in the member by passing validation in case their password changed
+      bypass_sign_in(@member)
+      redirect_to profile_path, notice: "Password was successfully changed."     
+    else
+      redirect_to profile_path, alert: "New password was not saved."
     end
   end
 

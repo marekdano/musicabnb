@@ -31,5 +31,9 @@ class ProfilePolicy < ApplicationPolicy
   def upload_avatar?
     @member && @member.profile == @record
   end
+
+  def update_password?
+    @member && @member.profile == @record
+  end
   
 end

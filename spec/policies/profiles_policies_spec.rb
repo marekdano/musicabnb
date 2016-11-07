@@ -7,7 +7,7 @@ describe ProfilePolicy do
     let(:member) { nil }
     let(:profile) { FactoryGirl.create(:profile) }
 
-    permissions :index?, :show?, :new?, :edit?, :create?, :update?, :destroy?, :upload_avatar? do
+    permissions :index?, :show?, :new?, :edit?, :create?, :update?, :destroy?, :upload_avatar?, :update_password? do
       it "does not grant access for non logged in visitors" do
         expect(subject).not_to permit(member, profile)
       end     
@@ -24,7 +24,7 @@ describe ProfilePolicy do
       end
     end
 
-    permissions :edit?, :update?, :destroy?, :upload_avatar? do
+    permissions :edit?, :update?, :destroy?, :upload_avatar?, :update_password? do
       it "denies access to member for whom the profile does not belong" do
         expect(subject).not_to permit(member, profile)
       end
@@ -34,7 +34,7 @@ describe ProfilePolicy do
   context "for member editing own profile" do
     let(:member) { FactoryGirl.create(:member) }
 
-    permissions :edit?, :update?, :destroy?, :upload_avatar? do
+    permissions :edit?, :update?, :destroy?, :upload_avatar?, :update_password? do
       it "grants access if profile belongs to member" do
         expect(subject).to permit(member, Profile.create!(member_id: member.id))
       end
