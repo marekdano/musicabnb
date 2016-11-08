@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for  :members, 
               :path => '',
               :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'signup'},
-              :controllers => { registrations: 'registrations' }
+              :controllers => { :registrations => 'registrations', 
+                                :omniauth_callbacks => "omniauth_callbacks" }
 
   
   root 'home#index'

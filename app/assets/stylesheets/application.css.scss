@@ -14,23 +14,38 @@
  *= require_self
  */
 
- @import "font-awesome";
+@import "font-awesome";
 
- body {
+body {
   padding-top: 50px;
- }
+}
 
- .alert {
+.alert {
   margin-bottom: 0;
   border-radius: 0;
- }
+}
 
- .navbar-header .navbar-brand {
+.navbar-header .navbar-brand {
   color: #337ab7;
   font-weight: 500;
- }
+}
 
- .main-title {
+.main-title {
   margin-bottom: 3rem;
   text-align: center;   
- }
+}
+
+// .btn-default {
+//   background-color: #FBC90D;
+//   color: #91750B;
+// }
+
+.panel-primary {
+  border-color: #B7B1AE;
+  
+  & >.panel-heading {
+    background-color: #B7B1AE;
+    border-color: #B7B1AE;
+  }
+}
+

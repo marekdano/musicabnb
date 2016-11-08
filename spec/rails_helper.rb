@@ -32,6 +32,17 @@ Capybara.javascript_driver = :webkit
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 
+OmniAuth.config.test_mode = true
+
+OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+  provider: "google_oauth2",
+  uid: "123456",
+  info: { 
+    email: "jeanluc@picard.com",
+    name: "Jean Luc Picard"
+  }    
+})
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
@@ -69,6 +80,7 @@ RSpec.configure do |config|
   config.before :suite do 
     Warden.test_mode!
   end
+
   
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
