@@ -11,18 +11,6 @@ class Member < ApplicationRecord
   validates_presence_of :name
 
   def self.from_omniauth(auth)
-    # data = access_token.info
-    # member = Member.where(:email => data["email"]).first
-
-    # # Members will be created if they don't exist
-    # unless member
-    #   member = Member.create(
-    #     name: data["name"],
-    #     email: data["email"],
-    #     password: Devise.friendly_token[0,20]   
-    #   )
-    # end
-    # member
     where(provider: auth.provider, uid: auth.uid).first_or_create do |member|
       member.email = auth.info.email
       member.password = Devise.friendly_token[0,20]

@@ -17,7 +17,7 @@
 
 
  
-$(document).ready(function() {
+document.addEventListener("turbolinks:load", function() {
   // Auto upload profile avatar when a image was selected 
   // from the file system
   $('#profile_avatar').change(function() {

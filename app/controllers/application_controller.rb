@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
 
-  rescue_from Pundit::NotAuthorizedError, with: :member_not_authorized
   alias_method :current_user, :current_member
-  
+  rescue_from Pundit::NotAuthorizedError, with: :member_not_authorized
+    
   private
   
   def member_not_authorized
