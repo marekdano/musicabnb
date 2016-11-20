@@ -33,7 +33,7 @@ feature "Member with profile" do
 
 
   #communicate purpose upfront with Simple BDD
-  scenario "member can create own profile" do
+  scenario "member receives errors when creating profile" do
     Given "member can view profile form"
     When "member enters incorrect email"
     Then "member can see a message of not saved information"
