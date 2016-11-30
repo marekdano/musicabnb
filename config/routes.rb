@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   devise_for  :members, 
               :path => '',
               :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'signup'},

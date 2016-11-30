@@ -6,7 +6,6 @@ class ApplicationPolicy
     @record = record
   end
 
-
   def scope
     Pundit.policy_scope!(member, record.class)
   end
