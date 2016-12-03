@@ -1,15 +1,16 @@
 FactoryGirl.define do
+
   factory :location do
-    title "MyString"
-    description "MyText"
-    address_1 "MyString"
-    address_2 "MyString"
-    city "MyString"
-    state "MyString"
-    postcode "MyString"
-    musical_instrument "MyString"
-    night_rate "9.99"
+    title "My title"
+    description "My description"
+    address_1 "My address"
+    address_2 "My address"
+    city "My City"
+    state "My State"
+    postcode "My Postcode"
+    musical_instrument "My musical instrument"
+    night_rate 23
     guests 1
-    member nil
+    member
   end
 end

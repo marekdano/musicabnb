@@ -1,31 +1,46 @@
 require 'rails_helper'
 
-RSpec.describe LocationPolicy do
+describe LocationPolicy do
 
   subject { described_class }
 
+  # new?, create?, update?, edit?, destroy?
+
   context "for a visitor" do
     let(:member) { nil }
+    let(:location) { FactoryGirl.create(:location) }
+    
+    permissions :new?, :edit?, :create?, :update?, :destroy? do
+      it "does not grant access for creating, editing, updating and destroying locations" do
+        expect(subject).not_to permit(member, location)
+      end     
+    end
   end
 
+  context "for a member creating a location" do
+    let(:location) { FactoryGirl.create(:location) }
+    let(:member) { FactoryGirl.create(:member) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    permissions :new?, :create? do
+      it "grants access to member" do
+        expect(subject).to permit(member, location)
+      end
+    end
+
+    permissions :edit?, :update?, :destroy? do
+      it "denies access to member for whom the location does not belong" do
+        expect(subject).not_to permit(member, location)
+      end
+    end
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context "for member editing onw location" do
+    let(:member) { FactoryGirl.create(:member) }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    permissions :edit?, :update?, :destroy? do
+      it "grants access if location belongs to member" do
+        expect(subject).to permit(member, Location.create!(member_id: member.id))
+      end
+    end
   end
 end

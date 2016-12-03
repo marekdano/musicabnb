@@ -6,7 +6,7 @@ class Member < ApplicationRecord
          :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_one :profile
-  has_many :location
+  has_one :location
   
   accepts_nested_attributes_for :profile, allow_destroy: true
 

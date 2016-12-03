@@ -3,9 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_member
   before_action :set_profile, only: [:edit, :destroy, :upload_avatar]
   
-  # main actions: 
-  # index, new, show, edit, create, update, destroy
-
+  # Main actions
 
   def index
     #authorize @profile
@@ -29,6 +27,8 @@ class ProfilesController < ApplicationController
       format.html { redirect_to root_path, notice: "We are unhappy seeing you to leave." }
     end
   end
+
+  # Additional actions
 
   def upload_avatar 
     authorize @profile
