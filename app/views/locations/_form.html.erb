@@ -61,10 +61,9 @@
     <%= f.number_field :guests %>
   </div>
 
-  <div class="field">
-    <%= f.label :member_id %>
-    <%= f.text_field :member_id %>
-  </div>
+  
+  <%= f.hidden_field :member_id, :value => current_member.id %>
+  
 
   <div class="actions">
     <%= f.submit %>

@@ -39,7 +39,8 @@ describe LocationPolicy do
 
     permissions :edit?, :update?, :destroy? do
       it "grants access if location belongs to member" do
-        expect(subject).to permit(member, Location.create!(member_id: member.id))
+        #expect(subject).to permit(member, Location.create!(member_id: member.id))
+        expect(subject).to permit(member, FactoryGirl.create(:location, member: member.id))
       end
     end
   end
