@@ -18,5 +18,17 @@ feature "Member creates a location" do
     fill_in "location[guests]", with: 3
     click_button "Create Location"
     expect(page).to have_content("Location was successfully created.")
+
+    visit locations_path
+    expect(page).to have_content("Location title")
+    expect(page).to have_content("Location description")
+    expect(page).to have_content("Drums")
+    expect(page).to have_content("30")
+    expect(page).to have_content("3")
+  end
+
+  scenario "open the location form when a member is not logged in" do
+    visit new_location_path
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
 end

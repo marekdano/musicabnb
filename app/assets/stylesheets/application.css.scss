@@ -35,11 +35,6 @@ body {
   text-align: center;   
 }
 
-// .btn-default {
-//   background-color: #FBC90D;
-//   color: #91750B;
-// }
-
 .panel-primary {
   border-color: #B7B1AE;
   
@@ -48,4 +43,16 @@ body {
     border-color: #B7B1AE;
   }
 }
+
+.navbar-default {
+  .navbar-nav>li>a.btn-property {
+      color: #fff;
+
+      &:hover {
+        color: #000;
+      }
+  } 
+}
+
+
 
