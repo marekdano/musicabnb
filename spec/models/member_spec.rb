@@ -17,6 +17,6 @@ RSpec.describe Member, type: :model do
 
   describe "associations" do 
     it { should have_one(:profile) }
-    it { should have_one(:location) }
+    it { should have_many(:location) }
   end
 end

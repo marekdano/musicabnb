@@ -9,15 +9,15 @@ class LocationPolicy < ApplicationPolicy
   end
 
   def update?
-    @member && @member.location == @record
+    @member && @record.member == @member
   end
 
   def edit?
-    @member && @member.location == @record
+    @member && @record.member == @member
   end
 
   def destroy?
-    @member && @member.location == @record
+    @member && @record.member == @member
   end
   
 end
