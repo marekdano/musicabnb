@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :locations
+
   devise_for  :members, 
               :path => '',
               :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'signup'},
@@ -24,5 +24,9 @@ Rails.application.routes.draw do
   end
 
   get 'profile', to: 'profiles#edit'
+
+  resources :locations do
+    get :add_images, on: :member
+  end
 
 end
