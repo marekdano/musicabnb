@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :authenticate_member!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show, :edit, :update, :destroy, :add_images]
 
   # GET /locations
   # GET /locations.json
@@ -28,8 +28,11 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
 
+    #byebug
+
     respond_to do |format|
       if @location.save
+        #byebug
         format.html { redirect_to add_images_location_path(@location), notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
@@ -64,6 +67,10 @@ class LocationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_images   
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

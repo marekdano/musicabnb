@@ -1,1 +1,12 @@
-<h1>Add location images</h1>
+<h1>Add Pictures</h1>
+
+<%= form_for @location, html: { multipart: true, class: "dropzone"}  do |f| %>
+
+  <%= f.fields_for :location_images, LocationImage.new do |image| %>
+        <div class="fallback">     
+      <%= image.file_field :picture %>
+      <%= f.submit "UPDATE & SAVE" %>     
+    </div>    
+  <% end %>
+  
+<% end %>
