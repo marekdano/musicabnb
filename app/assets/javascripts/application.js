@@ -24,16 +24,11 @@ document.addEventListener("turbolinks:load", function() {
   $('#profile_avatar').change(function() {
     $('.edit_profile').submit();
   });
+
+  $('.fotorama').fotorama();
+  
 });
 
-$(document).ready(function(){
-  // disable auto discover
-  Dropzone.autoDiscover = false;
- 
-  var dropzone = new Dropzone (".dropzone", {
-    maxFilesize: 256, // Set the maximum file size to 256 MB
-    paramName: "location[location_images_attributes][0][picture]", // Rails expects the file upload to be something like model[field_name]
-    addRemoveLinks: false // Don't show remove links on dropzone itself.
-  }); 
-});
+
+
 

@@ -1,3 +1,17 @@
 // Place all the styles related to the Locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dropzone.dz-clickable {
+  cursor: pointer;
+}
+
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: white;
+
+  & .dz-message {
+    font-weight: 500;
+  }
+}

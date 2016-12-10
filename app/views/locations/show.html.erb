@@ -51,9 +51,13 @@
 </p>
 
 <p>
-  <strong>Member:</strong>
-  <%= @location.member %>
+  <strong>Images:</strong>
 </p>
+<div class="fotorama" data-auto="false" data-nav="thumbs">
+  <% @location.location_images.each do |image| %>
+    <%= image_tag image.picture.url(:square), class: "location-picture", alt: "location picture" %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
