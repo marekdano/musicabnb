@@ -29,6 +29,7 @@ gem 'animate-css-rails'
 gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2'
 gem 'dropzonejs-rails'
+gem 'geocoder'
 #gem 'wicked' # check for more info https://github.com/schneems/wicked
 
 # Registration, Authentication and Authorization

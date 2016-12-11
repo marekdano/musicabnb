@@ -10,10 +10,8 @@ RSpec.describe Location, type: :model do
     it { should validate_presence_of(:title) } 
     it { should validate_presence_of(:description) } 
     it { should validate_presence_of(:address_1) }
-    it { should validate_presence_of(:address_2) }
     it { should validate_presence_of(:city) }
     it { should validate_presence_of(:state) }
-    it { should validate_presence_of(:postcode) }
     it { should validate_presence_of(:musical_instrument) }
     it { should validate_presence_of(:night_rate) }
     it { should validate_presence_of(:guests) }  

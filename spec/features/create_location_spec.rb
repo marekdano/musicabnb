@@ -8,11 +8,11 @@ feature "Member creates a location" do
     visit new_location_path
     fill_in "location[title]", with: "Location title"
     fill_in "location[description]", with: "Location description"
-    fill_in "location[address_1]", with: "Location address 1"
-    fill_in "location[address_2]", with: "Location address 2"
-    fill_in "location[city]", with: "Location city"
-    fill_in "location[state]", with: "Location state"
-    fill_in "location[postcode]", with: "Location postcode"
+    fill_in "location[address_1]", with: "1 Sundrive Road"
+    fill_in "location[address_2]", with: ""
+    fill_in "location[city]", with: "Dublin"
+    fill_in "location[state]", with: "Ireland"
+    fill_in "location[postcode]", with: "Postcode"
     fill_in "location[musical_instrument]", with: "Drums"
     fill_in "location[night_rate]", with: 30
     fill_in "location[guests]", with: 3
@@ -42,6 +42,28 @@ feature "Member creates a location" do
     expect(LocationImage.count).to eq 1
     expect(LocationImage.first.picture_order).to eq 1
   end
+
+  scenario "with valid longitude and latitude" do
+    expect(Location.last.latitude).to eq 53.3197279
+    expect(Location.last.longitude).to eq -6.2906132
+  end
+
+  scenario "with empty longitude and latitude" do 
+    visit new_location_path
+    fill_in "location[title]", with: "Location title"
+    fill_in "location[description]", with: "Location description"
+    fill_in "location[address_1]", with: "1 Blabla Road"
+    fill_in "location[address_2]", with: ""
+    fill_in "location[city]", with: "No city"
+    fill_in "location[state]", with: "No state"
+    fill_in "location[postcode]", with: "Postcode"
+    fill_in "location[musical_instrument]", with: "Drums"
+    fill_in "location[night_rate]", with: 30
+    fill_in "location[guests]", with: 3
+    click_button "Create Location"
+
+    expect(page).to have_content("Address is not valid")
+  end  
 end
 
 feature "Guest attempts to create a location" do

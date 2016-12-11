@@ -3,12 +3,12 @@ FactoryGirl.define do
   factory :location do
     title "My title"
     description "My description"
-    address_1 "My address"
+    address_1 "1 Sundrive Road"
     address_2 "My address"
-    city "My City"
-    state "My State"
+    city "Dublin"
+    state "Ireland"
     postcode "My Postcode"
-    musical_instrument "My musical instrument"
+    musical_instrument "Drums"
     night_rate 23
     guests 1
     member
