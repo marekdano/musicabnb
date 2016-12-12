@@ -16,7 +16,6 @@
 //= require dropzone
 //= require_tree .
 
-
  
 document.addEventListener("turbolinks:load", function() {
   // Auto upload profile avatar when a image was selected 
@@ -26,8 +25,11 @@ document.addEventListener("turbolinks:load", function() {
   });
 
   $('.fotorama').fotorama();
-  
+
 });
+
+
+
 
 
 
