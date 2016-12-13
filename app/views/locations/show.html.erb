@@ -75,6 +75,6 @@
 <%= link_to 'Back', locations_path %>
 
 <script type="text/javascript">
-  google.maps.event.addDomListener(window, 'load', initMap(<%= @location.latitude %>, <%= @location.longitude %>));
+  google.maps.event.addDomListener(window, 'load', initMap(<%= @location.latitude || 0 %>, <%= @location.longitude || 0 %>));
 </script>
 
