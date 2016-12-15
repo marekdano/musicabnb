@@ -2,7 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :location
   belongs_to :member
 
-  validate: :dates_are_available
+  validate :dates_are_available
   
   def dates_are_available
     start_date_overlap = location.reservations.where(start_date: start_date..end_date - 1.day)
