@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require dropzone
-//= require bootstrap-datepicker
+//= require jquery-ui/datepicker
 //= require turbolinks
 //= require_tree .
 
@@ -26,11 +26,6 @@ document.addEventListener("turbolinks:load", function() {
   });
 
   $('.fotorama').fotorama();
-
-  $('.datepicker').datepicker({
-    format: 'dd/mm/yyyy',
-    startDate: '1d'
-  });
 
 });
 

@@ -30,7 +30,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2'
 gem 'dropzonejs-rails'
 gem 'geocoder'
-gem 'bootstrap-datepicker-rails'
+gem 'jquery-ui-rails'
 #gem 'wicked' # check for more info https://github.com/schneems/wicked
 
 # Registration, Authentication and Authorization

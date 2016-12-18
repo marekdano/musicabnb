@@ -35,4 +35,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :reservations, only: [:new, :create] do
+    get :confirmation, on: :member
+  end
+
 end
