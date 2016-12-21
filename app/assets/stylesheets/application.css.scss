@@ -12,6 +12,7 @@
  *
  *= require dropzone/dropzone
  *= require jquery-ui/datepicker
+ *= require fullcalendar
  *= require_tree .
  *= require_self
  */
@@ -54,6 +55,11 @@ body {
         color: #000;
       }
   } 
+}
+
+// Style the fullcalendar layout
+.fc-past {
+  background-color: silver;
 }
 
 

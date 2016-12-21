@@ -1,5 +1,9 @@
 class ReservationsController < ApplicationController
   
+  def index
+    @reservations = Reservation.where(member_id: current_member.id)
+  end
+  
   def new
     @reservation = Reservation.new(reservation_params)
     @location = @reservation.location

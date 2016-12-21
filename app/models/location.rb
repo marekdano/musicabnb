@@ -49,4 +49,11 @@ class Location < ApplicationRecord
     end
   end
 
+  def future_available_dates
+   future_dates = AvailableDate.where("date >= ?", Date.today)
+   future_dates.where(booked: false)
+   #or
+   #future_dates.where(reservation_id: nil)
+  end
+
 end

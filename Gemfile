@@ -32,6 +32,9 @@ gem 'dropzonejs-rails'
 gem 'geocoder'
 gem 'jquery-ui-rails'
 #gem 'wicked' # check for more info https://github.com/schneems/wicked
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 
 # Registration, Authentication and Authorization
 gem 'devise'

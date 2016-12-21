@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require dropzone
 //= require jquery-ui/datepicker
+//= require moment 
+//= require fullcalendar
 //= require turbolinks
 //= require_tree .
 
