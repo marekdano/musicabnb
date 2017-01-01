@@ -1,16 +1,24 @@
-<h1>Add Pictures</h1>
 
-<%= form_for @location, html: { multipart: true, class: "dropzone dz-clickable", id: "dropzone"}  do |f| %>
- 
-  <%= f.fields_for :location_images, LocationImage.new do |image| %>
-    <div class="dz-message" data-dz-message><span>Drop files here or click to upload.</span></div>
-    <div class="fallback">  
-      <%= image.file_field :picture %>
-      <%= f.submit "UPDATE & SAVE" %>     
-    </div>    
-  <% end %>
+<div class="container">
+  <div class="dropzone-wrapper">
+    <h2 class="main-title">Add Pictures</h2>
+   
+    <%= form_for @location, html: { multipart: true, class: "dropzone dz-clickable", id: "dropzone"}  do |f| %>
+      <%= f.fields_for :location_images, LocationImage.new do |image| %>
+        <div class="dz-message" data-dz-message><span>Drop files here or click to upload.</span></div>
+        <div class="fallback">  
+          <%= image.file_field :picture %>
+          <%= f.submit "UPDATE & SAVE" %>     
+        </div>    
+      <% end %>
+    <% end %>
   
-<% end %>
+    <div class="links-wrapper">
+      <h6 class="text-uppercase">Next</h6>
+      <%= link_to "Add Available Dates", calendar_location_path(@location), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript">

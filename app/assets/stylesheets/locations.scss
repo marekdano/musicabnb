@@ -39,6 +39,29 @@
   }
 }
 
+.dropzone-wrapper {
+  margin: 10rem 0 16rem;
+}
+
+.items-form {
+  max-width: 800px;
+  margin: 3rem auto 10rem;
+}
+
+.calendar-wrapper {
+  margin: 10rem auto;
+  max-width: 550px;
+
+  @media (max-width: 480px) {
+    max-width: 320px;
+  }
+}
+
+.dates-wrapper {
+  margin: 0 auto;
+  max-width: 550px;
+}
+
 
 // Always set the map height explicitly to define the size of the div
 // element that contains the map.

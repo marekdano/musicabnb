@@ -1,17 +1,19 @@
-<div>Thank you for booking the place!</div>
+<div class="container">
 
-<div>
-  <p>Your Reservation is set for:</p>
-  <p><%= @reservation.start_date.strftime("%d %B %Y") %></p>
-  <p>until</p>
-  <p><%= @reservation.end_date.strftime("%d %B %Y") %></p>
-  <p>at</p>
-  <p><%= @location.title %></p>
-  <p><%= @location.address_1 %></p>
-  <p><%= @location.city %></p>
-  <p><%= @location.state %></p>
-</div>
+  <h4 class="text-uppercase">Thank you for booking the place!</h4>
 
-<div>
-  Have a great stay!
+  <div>
+    <p>Your Reservation is set for:</p>
+    <p><%= @reservation.start_date.strftime("%d %B %Y") %></p>
+    <p>until</p>
+    <p><%= @reservation.end_date.strftime("%d %B %Y") %></p>
+    <p>at</p>
+    <p><%= @location.title %></p>
+    <p><%= @location.address_1 %></p>
+    <p><%= @location.city %></p>
+    <p><%= @location.state %></p>
+  </div>
+
+  <h4>Have a great stay!</h4>
+
 </div>

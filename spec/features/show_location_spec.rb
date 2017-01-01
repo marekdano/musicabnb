@@ -18,7 +18,7 @@ feature "Guest can see a location details" do
     fill_in "location[guests]", with: 3
     
     expect{
-      click_button "Create Location"
+      click_button "Submit"
     }.to change(Location, :count).by(1)
     
     expect(page).to have_content("Location was successfully created.")
@@ -33,8 +33,8 @@ feature "Guest can see a location details" do
     expect(LocationImage.first.picture_order).to eq 1
   end
 
-  scenario "when the location is choosen" do
-    visit location_path(Location.last)
+  scenario "when the location is chosen" do
+    visit locations_path(Location.last)
 
     expect(page).to have_content("Location title")
     expect(page).to have_content("30")

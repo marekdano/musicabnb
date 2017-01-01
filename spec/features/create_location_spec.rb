@@ -16,7 +16,7 @@ feature "Member creates a location" do
     fill_in "location[musical_instrument]", with: "Drums"
     fill_in "location[night_rate]", with: 30
     fill_in "location[guests]", with: 3
-    click_button "Create Location"
+    click_button "Submit"
   end
 
   scenario "fill the form of a new location when a member is logged in" do
@@ -60,7 +60,7 @@ feature "Member creates a location" do
     fill_in "location[musical_instrument]", with: "Drums"
     fill_in "location[night_rate]", with: 30
     fill_in "location[guests]", with: 3
-    click_button "Create Location"
+    click_button "Submit"
 
     expect(page).to have_content("Address is not valid")
   end  
