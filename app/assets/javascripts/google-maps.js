@@ -5,7 +5,8 @@ function initMap(lat, long) {
   console.log(lat, long);
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: lat, lng: long},
-    zoom: 16
+    zoom: 16,
+    scrollwheel: false
   });
 
   if(lat !== 0) {
