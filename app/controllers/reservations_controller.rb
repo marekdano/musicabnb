@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
-  
+  before_action :authenticate_member!, only: [:new, :create, :confirmation]
+
   def index
     @reservations = Reservation.where(member_id: current_member.id)
   end

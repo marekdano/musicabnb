@@ -4,7 +4,7 @@
   <p>Your Reservation is set for:</p>
   <p><%= @reservation.start_date.strftime("%d %B %Y") %></p>
   <p>until</p>
-  <p><%= @reservation.start_date.strftime("%d %B %Y") %></p>
+  <p><%= @reservation.end_date.strftime("%d %B %Y") %></p>
   <p>at</p>
   <p><%= @location.title %></p>
   <p><%= @location.address_1 %></p>

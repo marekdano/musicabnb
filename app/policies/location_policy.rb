@@ -19,5 +19,17 @@ class LocationPolicy < ApplicationPolicy
   def destroy?
     @member && @record.member == @member
   end
+
+  def calendar?
+    @member && @record.member == @member
+  end
+
+  def add_available_dates?
+     @member && @record.member == @member
+  end
+
+  def add_images?
+     @member && @record.member == @member
+  end
   
 end

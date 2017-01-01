@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_member!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_member!, only: [:new, :edit, :create, :update, :destroy, :add_images, :calendar, :add_available_dates]
   before_action :set_location, only: [:show, :edit, :update, :destroy, :add_images, :calendar, :add_available_dates]
 
   # GET /locations
@@ -72,6 +72,7 @@ class LocationsController < ApplicationController
   end
 
   def calendar
+    authorize @location
   end
 
   def add_available_dates

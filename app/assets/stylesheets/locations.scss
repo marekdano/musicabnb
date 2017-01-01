@@ -24,15 +24,17 @@
   margin-right: 10px;
 }
 
-section {
-  margin: 4rem 0;
+.location-page {
+  section {
+    margin: 4rem 0;
   
-  &#profile {
-    background-color: #f3f3f3;
-    padding: 4rem;
+    &#profile {
+      background-color: #f3f3f3;
+      padding: 4rem;
 
-    img {
-      height: 10rem;
+      img {
+        height: 10rem;
+      }
     }
   }
 }

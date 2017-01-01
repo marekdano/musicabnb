@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container location-page">
   
   <section>
     <div class="row">
@@ -25,7 +25,6 @@
       <div class="panel-body">
         <%= form_for Reservation.new, url: new_reservation_path, html: { method: :get, class: "form-inline" }  do |f| %>
           <%= f.hidden_field :location_id, value: @location.id %>
-          <%= f.hidden_field :member_id, value: current_member.id %> 
           <label class="text-uppercase dates-form">Travel Dates</label>       
           <div class="form-group">
             <%= f.text_field :start_date, id: "datepicker-start", class: "form-control", placeholder: "check in" %>
