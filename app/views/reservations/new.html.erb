@@ -1,14 +1,23 @@
 <div class="container">
-  <div class="dates-wrapper">
-    <h4>Reservation summary</h4>
+  <div id="reservation-wrapper">
+    <h2 class="main-title">Reservation summary</h2>
 
-    <%= form_for @reservation do |f| %>
-      <%= f.text_field :start_date, id: "datepicker-start", value: @reservation.start_date.strftime() %>
-      <%= f.text_field :end_date, id: "datepicker-end", value: @reservation.end_date.strftime() %>
+    <%= form_for @reservation, html: { class: "form-inline" } do |f| %>
+      <div class="form-group">
+        <%= f.text_field :start_date, id: "datepicker-start", class: "form-control", value: @reservation.start_date.strftime() %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :end_date, id: "datepicker-end", class: "form-control", value: @reservation.end_date.strftime() %>
+      </div>
       <%= f.hidden_field :location_id, value: @reservation.location.id %>
       <%= f.hidden_field :member_id, value: current_member.id %>
       <%= f.submit "Confirm Reservation", class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>
+
+<!-- SCRIPT for availableDates-->
+<script type="text/javascript">
+  var availableDates = <%= @available_dates.to_s.html_safe %>
+</script>
 

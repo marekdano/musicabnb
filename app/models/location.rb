@@ -5,6 +5,7 @@ class Location < ApplicationRecord
   accepts_nested_attributes_for :location_images, allow_destroy: true
 
   has_many :reservations
+  has_many :available_dates
 
   validates_presence_of :title, 
                         :description, 
@@ -45,7 +46,7 @@ class Location < ApplicationRecord
   def create_available_dates(start_date, end_date)
     dates = start_date.to_datetime.upto(end_date.to_datetime)
     dates.each do |date|
-      AvailableDate.find_or_create_by(date: date, location_id: self.id)
+      AvailableDate.find_or_create_by(date: date, location_id: self.id, booked: false)
     end
   end
 

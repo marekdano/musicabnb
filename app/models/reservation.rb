@@ -13,4 +13,10 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def dates_booked 
+    (self.start_date..self.end_date).each do |date|
+      AvailableDate.where(date: date).update(booked: true)
+    end
+  end
+
 end

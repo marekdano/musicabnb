@@ -8,16 +8,20 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new(reservation_params)
     @location = @reservation.location
+    @available_dates = @location.available_dates.where(booked: false).pluck(:date).as_json
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @location = @reservation.location
 
     respond_to do |format|
       if @reservation.save
+        @reservation.dates_booked
+
         format.html { redirect_to confirmation_reservation_path(@reservation), notice: "Reservation successfully created." }
       else
-        format.html { render :new, alert: "Some of the dates of your reservation are not available. Please try different dates." }
+        format.html { redirect_to location_path(@location), alert: "Some of the dates of your reservation are not available. Please try different dates." }
       end  
     end
   end

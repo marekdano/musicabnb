@@ -6,7 +6,11 @@ jQuery(function($) {
       minDate: "0",
       dateFormat: "dd/mm/yy",
       changeMonth: true,
-      numberOfMonths: 1
+      numberOfMonths: 1,
+      beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ availableDates.indexOf(string) != -1 ]
+      }
     })
     .on("change", function() {
       to.datepicker("option", "minDate", getDate(this));
@@ -15,7 +19,11 @@ jQuery(function($) {
       defaultDate: "+1w",
       dateFormat: "dd/mm/yy",
       changeMonth: true,
-      numberOfMonths: 1
+      numberOfMonths: 1,
+      beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ availableDates.indexOf(string) != -1 ]
+      }
     })
     .on("change", function() {
       from.datepicker( "option", "maxDate", getDate( this ) );

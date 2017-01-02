@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+     @available_dates = @location.available_dates.where(booked: false).pluck(:date).as_json
   end
 
   # GET /locations/new
@@ -27,9 +28,6 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
-    #byebug
-
     respond_to do |format|
       if @location.save
         #byebug

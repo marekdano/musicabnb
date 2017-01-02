@@ -85,8 +85,10 @@
 </div>
 
 
-<!-- SCRIPT for google maps -->
+<!-- SCRIPT for google maps and availableDates-->
 <script type="text/javascript">
   google.maps.event.addDomListener(window, 'load', initMap(<%= @location.latitude || 0 %>, <%= @location.longitude || 0 %>));
+
+  var availableDates = <%= @available_dates.to_s.html_safe %>
 </script>
 
