@@ -23,7 +23,6 @@ RSpec.describe Location, type: :model do
 
   describe "associations" do
     it { should belong_to(:member) }
-    it { should belong_to(:member).dependent(:destroy) }
     it { should have_many(:location_images) }
   end
 end

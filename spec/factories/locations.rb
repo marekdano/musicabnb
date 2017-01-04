@@ -11,6 +11,6 @@ FactoryGirl.define do
     musical_instrument "Drums"
     night_rate 23
     guests 1
-    member
+    association :member, factory: :member
   end
 end

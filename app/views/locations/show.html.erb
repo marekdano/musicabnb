@@ -46,7 +46,7 @@
           data-width="100%"
           data-ratio="4/3">
       <% @location.location_images.each do |image| %>
-        <%= image_tag image.picture.url(:square), class: "location-picture", alt: "location picture" %>
+        <%= image_tag image.picture.url(:medium), class: "location-picture", alt: "location picture" %>
       <% end %>
     </div>
   </section>

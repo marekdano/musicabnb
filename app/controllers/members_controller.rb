@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_member!
-  before_action :set_member, only: [:update, :update_password]
+  before_action :set_member, only: [:update, :update_password, :member_locations]
 
   def update 
     @profile = @member.profile
@@ -29,6 +29,9 @@ class MembersController < ApplicationController
     end
   end
 
+  def member_locations 
+    @locations = @member.locations
+  end
 
   private
   # Use callbacks to share common constraints between actions.

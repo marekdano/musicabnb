@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   get 'profile', to: 'profiles#edit'
+  get 'member_locations', to: 'members#member_locations'
 
   resources :locations do
     member do

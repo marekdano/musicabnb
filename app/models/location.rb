@@ -1,11 +1,11 @@
 class Location < ApplicationRecord
-  belongs_to :member, dependent: :destroy
+  belongs_to :member
 
-  has_many :location_images
+  has_many :location_images, dependent: :destroy
   accepts_nested_attributes_for :location_images, allow_destroy: true
 
-  has_many :reservations
-  has_many :available_dates
+  has_many :reservations, dependent: :destroy
+  has_many :available_dates, dependent: :destroy
 
   validates_presence_of :title, 
                         :description, 
