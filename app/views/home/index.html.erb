@@ -2,18 +2,18 @@
 <section class="hero">
   <div class="jumbotron search-widget">
     <h3>Book your perfect musical vacation</h3>
-    <form class="form-inline">
+    <%= form_tag locations_path, method: :get, class: "form-inline" do %>
       <div class="form-group">
-        <input type="place" class="form-control" placeholder="Where to?">
+        <%= text_field_tag(:address, nil, class: "form-control", placeholder: "where to? city, state, address") %>
       </div>
       <div class="form-group">
-        <input type="check-in" class="form-control" placeholder="Check in">
+        <%= text_field_tag(:start_date, nil, id: "datepicker-start", class: "form-control", placeholder: "check in") %>
       </div>
       <div class="form-group">
-        <input type="check-out" class="form-control" placeholder="Check out">
+        <%= text_field_tag(:end_date, nil, id: "datepicker-end", class: "form-control", placeholder: "check out") %>
       </div>
-      <button type="submit" class="btn btn-primary">Find Properties</button>
-    </form>
+      <%= submit_tag "Find Properties", name: "commit", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </section>
 
@@ -87,4 +87,5 @@
     </div>
   </div>
 </section>
+
 

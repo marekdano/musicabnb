@@ -5,7 +5,15 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    if params[:start_date].present? && params[:start_date].present? && params[:address].present? 
+      @locations = SearchForLocationService.new({
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      address: params[:address]
+      }).matches.includes(:location_images, :member)
+    else
+      @locations = Location.all.includes(:location_images, :member)
+    end
   end
 
   # GET /locations/1
