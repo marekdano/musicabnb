@@ -30,7 +30,7 @@ class MembersController < ApplicationController
   end
 
   def member_locations 
-    @locations = @member.locations
+    @locations = @member.locations.includes(:location_images)
   end
 
   private

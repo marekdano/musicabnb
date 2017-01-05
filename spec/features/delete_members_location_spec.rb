@@ -18,6 +18,7 @@ feature "Member with own location" do
     login_as(member, :scope => :member)
     visit member_locations_path
     expect(page).not_to have_content("My title")
+    expect(page).to have_content("You have no locations listed.")
   end
 
   scenario "tries to display location when he/she is NOT logged in" do

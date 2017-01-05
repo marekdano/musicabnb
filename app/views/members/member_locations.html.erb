@@ -2,7 +2,7 @@
 <div class="container locations-wrapper">
   <h2>Yours Listed Locations</h2>
 
-  <% if @location.nil? %>
+  <% if @locations.empty? %>
     <h4><em>You have no locations listed.</em></h4>
   <% else %>
     <% @locations.each do |location| %>

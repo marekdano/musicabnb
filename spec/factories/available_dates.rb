@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :available_date do
-    date "2017-12-14"
-    location nil
+    date Date.tomorrow
     booked false
+    location nil
   end
 end
