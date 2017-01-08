@@ -5,5 +5,4 @@ FactoryGirl.define do
     email { FFaker::Internet.email }
     password { Devise.friendly_token.first(6) }
   end
-
 end
