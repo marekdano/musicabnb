@@ -1,4 +1,6 @@
 class Location < ApplicationRecord
+  paginates_per 5
+
   belongs_to :member
 
   has_many :location_images, dependent: :destroy

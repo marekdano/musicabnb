@@ -34,6 +34,11 @@
           </div>
         </div>
       <% end %>
+      
+      <div class="pagination-wrapper">
+        <%= link_to_previous_page @locations, '<i class="fa fa-chevron-left" aria-hidden="true"></i> Previous'.html_safe, class: "pagination-link btn btn-warning" %>
+        <%= link_to_next_page @locations, 'Next <i class="fa fa-chevron-right" aria-hidden="true"></i>'.html_safe, class: "pagination-link btn btn-warning" %>
+      </div>
     </div>
   </div>
 </div>

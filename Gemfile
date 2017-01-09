@@ -34,6 +34,8 @@ gem 'jquery-ui-rails'
 #gem 'wicked' # check for more info https://github.com/schneems/wicked
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+# gem for pagination
+gem 'kaminari'
 
 
 # Registration, Authentication and Authorization

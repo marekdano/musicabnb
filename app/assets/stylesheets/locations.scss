@@ -65,7 +65,7 @@
 }
 
 .locations-wrapper {
-  padding: 8rem 0 5rem 0;
+  padding: 8rem 0.8rem 5rem;
 }
 
 .location-picture {
@@ -79,6 +79,15 @@
   &:hover {
     text-decoration: none;
     color: $yellow-color;
+  }
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .pagination-link {
+    margin: 0 5px;
   }
 }
 
