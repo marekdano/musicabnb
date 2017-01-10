@@ -10,9 +10,9 @@ class LocationsController < ApplicationController
       start_date: params[:start_date],
       end_date: params[:end_date],
       address: params[:address]
-      }).matches.includes(:location_images, :member).page(params[:page]).per(5)
+      }).matches.includes(:location_images, :member).page(params[:page]).per(10)
     else
-      @locations = Location.all.includes(:location_images, :member).page(params[:page]).per(5)
+      @locations = Location.all.includes(:location_images, :member).page(params[:page]).per(10)
     end
   end
 
