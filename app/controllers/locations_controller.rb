@@ -5,11 +5,13 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    if params[:start_date].present? && params[:start_date].present? && params[:address].present? 
+    if params[:start_date].present? || params[:end_date].present? || params[:address].present? || params[:musical_instrument].present? || params[:guests].present?
       @locations = SearchForLocationService.new({
-      start_date: params[:start_date],
-      end_date: params[:end_date],
-      address: params[:address]
+        start_date: params[:start_date],
+        end_date: params[:end_date],
+        address: params[:address],
+        musical_instrument: params[:musical_instrument],
+        guests: params[:guests]
       }).matches.includes(:location_images, :member).page(params[:page]).per(10)
     else
       @locations = Location.all.includes(:location_images, :member).page(params[:page]).per(10)

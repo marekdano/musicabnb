@@ -6,9 +6,40 @@
         <div class="panel-heading">
           <h3 class="panel-title">Refine Your Search</h3>
         </div>
-        <div class="panel-body">
-          Search feature
-        </div>
+        <ul class="list-group">
+        <%= form_tag locations_path, method: :get do %>
+          <li class="list-group-item">
+            <h5>Destination</h5>
+            <div class="form-group">
+              <%= text_field_tag(:address, nil, class: "form-control", placeholder: "where to? city, state, address") %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <h5>Travel Dates</h5>
+            <div class="form-group"> 
+              <%= text_field_tag(:start_date, nil, id: "datepicker-start", class: "form-control", placeholder: "check in") %>
+            </div>
+            <div class="form-group">
+              <%= text_field_tag(:end_date, nil, id: "datepicker-end", class: "form-control", placeholder: "check out") %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <h5>Musical Instruments</h5>
+            <div class="form-group">
+              <%= select_tag "musical_instrument", "<option>Piano</option><option>Drums</option><option>Cello</option>".html_safe, prompt: "Select Musical Instrument" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <h5>Guests</h5>
+            <div class="form-group">
+              <%= select_tag "guests", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>".html_safe, prompt: "Select Guests" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <%= submit_tag "Find Properties", name: "commit", class: "btn btn-primary" %>
+          </li>
+        <% end %>
+        </ul>
       </div>
     </div>
     <div class="col-md-9">
