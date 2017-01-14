@@ -46,44 +46,26 @@
   <div class="container">
     <h2 class="text-center">Explore With Us</h2>
     <div class="row">
-      <div class="col-md-4">
-        <div class="panel panel-default panel-1">
-          <div class="panel-heading" style="background-image: url(<%= image_url('room.jpg') %>)">
-            <span class="price-label">€36</span>
+      
+      <% @locations.each do |location| %>
+        <div class="col-md-4">
+          <div class="panel panel-default panel-1">
+            <% unless location.location_images.empty? %>
+              <%= link_to location_path(location.id), alt: location.title do %>
+                <div class="panel-heading" style="background-image: url(<%= image_url location.location_images[0].picture.url(:square) %>)">
+                  <span class="price-label"><%= number_to_currency(location.night_rate, unit: '€', precision: 0) %></span>
+                </div>
+              <% end %>
+            <% end %>
+            <div class="panel-body">
+              <%= image_tag(location.member.profile.avatar.url(:square), alt: "profile picture", class: "panel-profile-img img-circle pull-right") %>
+              <h5 class="panel-title"><%= link_to location.title, location_path(location.id) %></h5>
+              <p><%= location.description %></p>
+            </div>
           </div>
-          <div class="panel-body">
-            <%= image_tag "member-avatar.jpg", class: "panel-profile-img img-circle pull-right" %>
-            <h5 class="panel-title">Title</h5>
-            <p>Description</p>
-            <img src="" class=>
+        </div>    
+      <% end %>
 
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel panel-default panel-1">
-          <div class="panel-heading" style="background-image: url(<%= image_url('room.jpg') %>)">
-            <span class="price-label">€36</span>            
-          </div>
-          <div class="panel-body">
-            <%= image_tag "member-avatar.jpg", class: "panel-profile-img img-circle pull-right" %>
-            <h5 class="panel-title">Title</h5>
-            <p>Description</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel panel-default panel-1">
-          <div class="panel-heading" style="background-image: url(<%= image_url('room.jpg') %>)">
-            <span class="price-label">€36</span>
-          </div>
-          <div class="panel-body">
-            <%= image_tag "member-avatar.jpg", class: "panel-profile-img img-circle pull-right" %>
-            <h5 class="panel-title">Title</h5>
-            <p>Description</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>

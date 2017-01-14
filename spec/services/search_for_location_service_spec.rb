@@ -8,8 +8,8 @@ RSpec.describe SearchForLocationService, type: :service do
       location.create_available_dates(Date.today, Date.today + 10.days)
 
       locations = SearchForLocationService.new({
-        start_date: Date.tomorrow,
-        end_date: Date.today + 3.days,
+        start_date: Date.tomorrow.to_s,
+        end_date: (Date.today + 3.days).to_s,
         address: "Dublin, Ireland"
       }).matches
 

@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 feature "Guest searches for locations" do
-  let(:member) { FactoryGirl.create(:member) }  
-
+   
   before do
     # location with available dates defined
-    FactoryGirl.create_list(:location_with_available_dates, 15, title: "Location with Date 1")
-    FactoryGirl.create_list(:location_with_available_dates, 15, title: "Location with Date 2")
+    member = FactoryGirl.create(:member)
+    member.create_profile
+    FactoryGirl.create_list(:location_with_available_dates, 15, title: "Location with Date 1", member: member)
+    FactoryGirl.create_list(:location_with_available_dates, 15, title: "Location with Date 2", member: member)
     @first_location = Location.first
     @last_location = Location.last
   end
@@ -39,11 +40,13 @@ feature "Guest searches for locations" do
   end
 
   scenario "by place and dates range" do
-    location_ny = FactoryGirl.create(:location, title: "New York Location with Date 1")
+    member = FactoryGirl.create(:member)
+    member.create_profile
+    location_ny = FactoryGirl.create(:location, title: "New York Location with Date 1", member: member)
     FactoryGirl.create(:available_date, location: location_ny, date: Date.today + 3.days)
     FactoryGirl.create(:available_date, location: location_ny, date: Date.today + 5.days)
 
-    location_d = FactoryGirl.create(:location, title: "Dublin Location with Date 1")
+    location_d = FactoryGirl.create(:location, title: "Dublin Location with Date 1", member: member)
     FactoryGirl.create(:available_date, location: location_d, date: Date.today + 3.days)
     FactoryGirl.create(:available_date, location: location_d, date: Date.today + 5.days)
 

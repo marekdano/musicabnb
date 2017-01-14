@@ -1,17 +1,19 @@
 require "rails_helper"
 
 feature "Member reserves location" do
-  let(:location) { FactoryGirl.create(:location) }
+  #let(:location) { FactoryGirl.create(:location) }
   let(:member) { FactoryGirl.create(:member) }
 
   before do
     login_as(member, scope: :member)
   end
 
-  scenario "by visiting location show page and selecting dates", js: true do
+  scenario "by visiting location show page and selecting dates" do
+    location = FactoryGirl.create(:location)
+
     visit location_path(location)
     
-    expect(page).to have_content location.description
+    expect(page).to have_content location.title
 
     execute_script("
       $('#datepicker-start').datepicker(
