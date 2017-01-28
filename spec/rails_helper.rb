@@ -45,6 +45,15 @@ OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
 
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara::Webkit.configure do |config|
+  config.allow_url("maps.gstatic.com")
+  config.allow_url("maps.googleapis.com")
+  config.allow_url("fonts.googleapis.com")
+  config.allow_url("csi.gstatic.com")
+  config.allow_url("cdnjs.cloudflare.com")
+  config.allow_url("maxcdn.bootstrapcdn.com")
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -52,7 +61,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
