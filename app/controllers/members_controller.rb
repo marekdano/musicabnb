@@ -33,6 +33,9 @@ class MembersController < ApplicationController
     @locations = @member.locations.includes(:location_images)
   end
 
+  def payout_account
+  end
+
   private
   # Use callbacks to share common constraints between actions.
   def set_member

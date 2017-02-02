@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :members do
+    get :payout_account, on: :member
+  end
+  
   resource :member, only: [:edit] do
     collection do
       patch 'update_password'

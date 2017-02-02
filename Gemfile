@@ -43,6 +43,7 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'pundit'
 gem 'figaro'
+gem 'omniauth-stripe-connect'
 
 
 # Use Redis adapter to run Action Cable in production

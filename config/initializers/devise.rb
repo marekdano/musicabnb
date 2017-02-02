@@ -26,7 +26,8 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
   require 'omniauth-google-oauth2'
-
+  require 'omniauth-stripe-connect'
+  
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -250,7 +251,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], { }
-
+  config.omniauth :stripe_connect, 
+                  ENV['stripe_connect_client_id'], 
+                  ENV['stripe_secret_key'], 
+                  scope: 'read_write',
+                  stripe_landing: 'register',
+                  redirect_uri: ENV['stripe_redirect']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
