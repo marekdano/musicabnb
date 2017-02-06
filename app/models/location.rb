@@ -24,6 +24,8 @@ class Location < ApplicationRecord
   after_validation :geocode, if: ->(obj){ obj.address_1.present? and obj.address_changed? }
   after_validation :lat_changed?
 
+  after_initialize :set_default_status
+
   scope :nearby, ->(address) { near(address, 50) if address.present? }
   scope :with_available_dates, ->(date_range_array) {
     joins(:available_dates)
@@ -64,5 +66,9 @@ class Location < ApplicationRecord
    future_dates.where(booked: false)
    #or
    #future_dates.where(reservation_id: nil)
+  end
+
+  def set_default_status
+    self.status = "draft" if self.new_record?
   end
 end
