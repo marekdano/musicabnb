@@ -24,6 +24,15 @@
           </div>
         </div>
 
+        <div class="panel panel-primary panel-wrapper">
+          <div class="panel-heading">Payment Method</div>
+          <div class="panel-body">
+            <%= link_to member_stripe_connect_omniauth_authorize_path, class: "stripe-connect" do %>
+              <span>Connect with Stripe</span>
+            <% end %>
+          </div>
+        </div>
+
         <div class="panel panel-danger panel-wrapper">
           <div class="panel-heading">Delete Account</div>
           <div class="panel-body">
