@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Front-end gems
 gem 'font-awesome-rails'
 gem 'animate-css-rails'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'aws-sdk', '~> 2'
 gem 'dropzonejs-rails'
 gem 'geocoder'
@@ -40,7 +40,7 @@ gem 'kaminari'
 
 # Registration, Authentication and Authorization
 gem 'devise'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
 gem 'pundit'
 gem 'figaro'
 gem 'omniauth-stripe-connect'
