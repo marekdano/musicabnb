@@ -69,8 +69,7 @@ GEM
     capybara-webkit (1.11.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
+    climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
@@ -179,7 +178,7 @@ GEM
       omniauth (~> 1.3)
       omniauth-oauth2 (~> 1.4)
     orm_adapter (0.5.0)
-    paperclip (5.0.0)
+    paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -322,7 +321,7 @@ DEPENDENCIES
   momentjs-rails
   omniauth-google-oauth2
   omniauth-stripe-connect
-  paperclip (~> 5.0.0)
+  paperclip (~> 5.2.0)
   pg
   pry
   pry-nav
